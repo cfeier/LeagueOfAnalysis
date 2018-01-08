@@ -1,0 +1,22 @@
+<div class="grid grid-pad">
+  <h1>Welcome to {{ title }}, categor {{ subtitle }}!</h1>
+</div>
+<div class="grid grid-pad">
+  <p>Summoner name:</p>
+  <input (keyup)="onKeySumm($event)">
+  <p>{{summoner}}</p>
+  <p>Server:<p>
+  <input (keyup)="onKeyServer($event)">
+  <p>{{server}}</p>
+  <button (click)="igaLookup()">Lookup</button>
+  
+  
+  <!--EXAMPLE START-->
+  <p></p>
+  <p></p>
+  <button (click)="onTestGet()()">Test GET Request</button>
+  <p>Output: {{getData}}</p>
+  <button (click)="onTestPost()()">Test POST Request</button>
+  <p>Output: {{postData}}</p>
+  <!--EXAMPLE START-->
+</div>
