@@ -17,10 +17,14 @@ repositories {
     flatDir {
        dirs 'json_lib'
        dirs 'apache_lib/lib'
+       dirs 'jaxrs-ri/api'
+       dirs 'jaxrs-ri/ext'
+       dirs 'jaxrs-ri/lib'
    }
 }
 
 dependencies {
+	compile name: 'servlet-api-2.5'
 	compile name: 'commons-codec-1.10'
 	compile name: 'commons-logging-1.2'
 	compile name: 'fluent-hc-4.5.4'
@@ -32,6 +36,30 @@ dependencies {
 	compile name: 'jna-4.4.0'
 	compile name: 'jna-platform-4.4.0'
 	compile name: 'json-20140107'
+	
+	compile name: 'javax.ws.rs-api-2.0.1'
+	
+	compile name: 'aopalliance-repackaged-2.5.0-b32'
+	compile name: 'hk2-api-2.5.0-b32'
+	compile name: 'hk2-locator-2.5.0-b32'
+	compile name: 'hk2-utils-2.5.0-b32'
+	compile name: 'javassist-3.20.0-GA'
+	compile name: 'javax.annotation-api-1.2'
+	compile name: 'javax.inject-2.5.0-b32'
+	compile name: 'javax.servlet-api-3.0.1'
+	compile name: 'jaxb-api-2.2.7'
+	compile name: 'jersey-guava-2.25.1'
+	compile name: 'org.osgi.core-4.2.0'
+	compile name: 'osgi-resource-locator-1.0.1'
+	compile name: 'persistence-api-1.0'
+	compile name: 'validation-api-1.1.0.Final'
+	
+	compile name: 'jersey-client'
+	compile name: 'jersey-common'
+	compile name: 'jersey-container-servlet-core'
+	compile name: 'jersey-container-servlet'
+	compile name: 'jersey-media-jaxb'
+	compile name: 'jersey-server'
     api 'org.apache.commons:commons-math3:3.6.1'
     implementation 'com.google.guava:guava:21.0'
     testImplementation 'junit:junit:4.12'

@@ -1,26 +1,27 @@
 package ch.bbw.loa;
 
-import java.io.BufferedReader;
+import ch.bbw.riot.CBI_RA;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 
-import org.apache.http.HttpResponse;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+
+@Path("/cbi")
 public class CBI {
 	
-	public void request() throws ClientProtocolException, IOException {
-		
-		HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet("https://euw1.api.riotgames.com/lol/summoner/v3/summoners/by-name/DigginUrGraveIRL?api_key=RGAPI-369d2249-cbaa-46e0-a9b2-60786c26302c");
-		HttpResponse response = client.execute(request);
-		BufferedReader rd = new BufferedReader (new InputStreamReader(response.getEntity().getContent()));
-		String line = "";
-		while ((line = rd.readLine()) != null) {
-			System.out.println(line);
-		}
+	@GET
+	@Path("lore/{champion}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response getLore(@PathParam("champion") String champ) throws ClientProtocolException, IOException{
+		CBI_RA cbi = new CBI_RA();
+		return Response.status(201).entity(cbi.getChampionLore(champ)).build();
 	}
 }
