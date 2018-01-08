@@ -5,5 +5,27 @@
 <div class="grid grid-pad">
   <p>Champion name:</p>
   <input (keyup)="onKeyChamp($event)">
+  <button (click)="cbiLookup()">Lookup</button>
   <p>{{champ}}</p>
+  
+  <div class="form-group">
+	<p>Lore:</p>
+	<p>{{lore}}</p>
+  </div>
+  <div class="form-group">
+	<p>Difficulty:</p>
+	<p>{{difficulty}}</p>
+  </div>
+  <div class="form-group">
+	<p>Stats:</p>
+	<p>{{stats}}</p>
+  </div>
+  <div class="form-group">
+	<p>Spells:</p>
+	<p>{{spells}}</p>
+  </div>
+  <div class="form-group">
+	<p>Passive:</p>
+	<p>{{passive}}</p>
+  </div>
 </div>

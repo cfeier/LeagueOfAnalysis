@@ -8,24 +8,32 @@
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
+apply plugin: 'war'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     jcenter()
     mavenCentral()
+    flatDir {
+       dirs 'json_lib'
+       dirs 'apache_lib/lib'
+   }
 }
 
 dependencies {
-// https://mvnrepository.com/artifact/org.json/json
-compile group: 'org.json', name: 'json', version: '20171018'
-
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
+	compile name: 'commons-codec-1.10'
+	compile name: 'commons-logging-1.2'
+	compile name: 'fluent-hc-4.5.4'
+	compile name: 'httpclient-4.5.4'
+	compile name: 'httpclient-cache-4.5.4'
+	compile name: 'httpclient-win-4.5.4'
+	compile name: 'httpcore-4.4.7'
+	compile name: 'httpmime-4.5.4'
+	compile name: 'jna-4.4.0'
+	compile name: 'jna-platform-4.4.0'
+	compile name: 'json-20140107'
     api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:21.0'
-
-    // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
 
